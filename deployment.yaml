@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minhrm-php-app
+  labels:
+    app: minhrm-php-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: minhrm-php-app
+  template:
+    metadata:
+      labels:
+        app: minhrm-php-app
+    spec:
+      containers:
+      - name: php-container
+        image: 911146576228.dkr.ecr.ap-south-1.amazonaws.com/minhrm-test-php:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+        

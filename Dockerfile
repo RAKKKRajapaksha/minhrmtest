@@ -1,15 +1,12 @@
-FROM python:3.10-slim
+FROM php:8.2-cli-alpine
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+RUN adduser -D -g '' minhrmnewuser
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+COPY index.php .
 
-COPY . .
+RUN chown -R minhrmnewuser:minhrmnewuser /app
+USER minhrmnewuser
 
-EXPOSE 80
-
-CMD ["python", "app.py"]
+CMD ["php", "-S", "0.0.0.0:80", "index.php"]

@@ -1,1 +1,3 @@
-# minhrmtest
+regarding 3rd question, 
+
+#I get a simple PHP web application and containerized it using Docker, implementing a non-root user named minhrmnewuser in the Dockerfile to follow security best practices. After building and running the Docker image locally, I prepared Kubernetes deployment and service YAML manifests to deploy the application on a Kubernetes cluster. For deployments on AWS EKS, I recommend using eksctl to easily create and manage the cluster. This setup currently does not include environment variable management or a CI/CD pipeline to automate deployment from AWS ECR to EKS, but those can be added later for full automation and configuration management.
